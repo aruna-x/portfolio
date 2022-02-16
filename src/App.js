@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from 'react';
+
+import Header from './Header';
+import About from './About';
+import Projects from './Projects';
+import Contact from './Contact';
+
+import './resources/App.css';
 
 function App() {
+  const [width, setWindowWidth] = useState(0);
+  
+  function updateDimensions() {
+    setWindowWidth(width => window.innerWidth);
+  }
+
+  useEffect(updateDimensions,[]);
+
+  function handleScroll(section) {
+    document.getElementById(section).scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header width={width} handleScroll={handleScroll}/>
+      <div id="middle-contents">
+        <About/>
+        <Projects handleScroll={handleScroll}/>
+      </div>
+      <Contact />
+    </>
+    
   );
 }
 
