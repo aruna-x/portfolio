@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 
 function Contact() {
+    const form = useRef();
+
     const [formData, setFormData] = useState({
-        name: "",
-        email: "",
+        from_name: "",
+        from_email: "",
         message: ""
     })
 
@@ -24,7 +26,7 @@ function Contact() {
         let email = document.getElementById("email");
         let message = document.getElementById("message");
         
-        const emailValid = validateEmail(formData.email);
+        const emailValid = validateEmail(formData.from_email);
 
         function clearFormErrors(){
             name.style.border = '1px solid gray';
@@ -32,12 +34,12 @@ function Contact() {
             message.style.border = '1px solid gray';
         }
 
-        if(!formData.name || !formData.email || !formData.message){
+        if(!formData.from_name || !formData.from_email || !formData.message){
             clearFormErrors();
-            if(!formData.name){
+            if(!formData.from_name){
                 name.style.border = '1px solid red';
             }
-            if(!formData.email){
+            if(!formData.from_email){
                 email.style.border = '1px solid red';
             }
             if(!formData.message){
@@ -47,15 +49,14 @@ function Contact() {
         if(!emailValid){
             email.style.border = '1px solid red';
         }
-        if(formData.name && formData.email && formData.message && emailValid) {
+        if(formData.from_name && formData.from_email && formData.message && emailValid) {
             clearFormErrors();
-            emailjs.sendForm('porfolio_contact_form', 'portfolio_message', 'form', 'user_evOsuPBhbpUVxV67MlYqN')
+            emailjs.send('porfolio_contact_form', 'portfolio_message', formData, 'user_evOsuPBhbpUVxV67MlYqN')
                 .then((result) => {
-                    console.log(result.text);
                     if (result.text){
                         setFormData({
-                            name: "",
-                            email: "", 
+                            from_name: "",
+                            from_email: "", 
                             message: "SUCCESS! Thanks for your message :) Be in touch soon."
                         });
                     }
@@ -71,17 +72,17 @@ function Contact() {
                 <h2>Contact</h2>
                 <div id="social-icons" className="flex-row">
                     <a href="https://www.linkedin.com/in/aruna-x/">
-                        <img src="/images/linkedin.png" alt="LinkedIn icon" className="social-img"/>
+                        <img src="/portfolio/images/linkedin.png" alt="LinkedIn icon" className="social-img"/>
                     </a>
                     <a href="https://github.com/aruna-x">
-                        <img src="/images/github.png" alt="Github icon" className="social-img"/>
+                        <img src="/portfolio/images/github.png" alt="Github icon" className="social-img"/>
                     </a>
                     <a href="https://dev.to/aruna">
-                        <img src="/images/dev.png" alt="Dev.to icon" id="dev" className="social-img"/>
+                        <img src="/portfolio/images/dev.png" alt="Dev.to icon" id="dev" className="social-img"/>
                     </a>
                 </div>
 
-                <form className="flex-column" id="form">
+                <form ref={form} className="flex-column" id="form">
                     <label hidden>Name</label>
                     <input
                         id="name"
@@ -89,8 +90,8 @@ function Contact() {
                         placeholder="Name" 
                         className="textarea" 
                         rows={1} 
-                        value={formData.name} 
-                        onChange={(e)=> handleChange("name",e)} 
+                        value={formData.from_name} 
+                        onChange={(e)=> handleChange("from_name",e)} 
                         required
                     />
 
@@ -101,8 +102,8 @@ function Contact() {
                         placeholder="Email" 
                         className="textarea" 
                         rows={1} 
-                        value={formData.email} 
-                        onChange={(e)=> handleChange("email",e)} 
+                        value={formData.from_email} 
+                        onChange={(e)=> handleChange("from_email",e)} 
                         required
                     />
 

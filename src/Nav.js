@@ -20,14 +20,14 @@ function Nav({width, handleScroll}) {
 
   const Hamburger = () => {
     return (
-      <img id="hamburger" alt="Hamburger icon for mobile menu" src='/images/hamburger.png' onClick={toggleMenu}/>
+      <img id="hamburger" alt="Hamburger icon for mobile menu" src='/portfolio/images/hamburger.png' onClick={toggleMenu}/>
     )
   }
 
   return (
     <nav>
         <div id="nav-top">
-            <img id="logo" src="/images/logo.png" alt="Site logo"/>
+            <img id="logo" src="/portfolio/images/logo.png" alt="Site logo"/>
             {width >= 650 ? <ButtonList /> : <Hamburger />}
         </div>
         {openMenu ? <ButtonList /> : <></>}
