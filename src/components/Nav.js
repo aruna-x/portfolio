@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
 function Nav({width, handleScroll}) {
-  const [openMenu, setOpenMenu] = useState(false);
+  const [openMobileMenu, setOpenMobileMenu] = useState(false);
 
-  function toggleMenu() {
-    setOpenMenu(bool => !bool);
+  function toggleMobileMenu() {
+    setOpenMobileMenu(bool => !bool);
   }
 
   const ButtonList = () => {
@@ -20,7 +20,7 @@ function Nav({width, handleScroll}) {
 
   const Hamburger = () => {
     return (
-      <img id="hamburger" alt="Hamburger icon for mobile menu" src='/portfolio/images/hamburger.png' onClick={toggleMenu}/>
+      <img id="hamburger" alt="Hamburger icon for mobile menu" src='/portfolio/images/hamburger.png' onClick={toggleMobileMenu}/>
     )
   }
 
@@ -30,7 +30,7 @@ function Nav({width, handleScroll}) {
             <img id="logo" src="/portfolio/images/logo.png" alt="Site logo"/>
             {width >= 650 ? <ButtonList /> : <Hamburger />}
         </div>
-        {openMenu ? <ButtonList /> : <></>}
+        {openMobileMenu ? <ButtonList /> : <></>}
     </nav>
   );
 }

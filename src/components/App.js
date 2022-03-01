@@ -5,7 +5,7 @@ import About from './About';
 import Projects from './Projects';
 import Contact from './Contact';
 
-import './resources/App.css';
+import '../resources/App.css';
 
 function App() {
   const [width, setWindowWidth] = useState(0);
