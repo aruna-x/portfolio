@@ -14,46 +14,53 @@ function Contact() {
         setFormData({...formData, [type]: e.target.value});
     }
 
+    function changeBorderColor(input, color) {
+        input.style.border = `1px solid ${color}`;
+    }
+
+    // returns: true if email valid, false if not, null if empty string
     function validateEmail(email) {
         let match = email.toLowerCase().match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
         return match ? email === match[0] : false;
     };
 
+    function checkFormValidity(nameInput, emailInput, messageInput) {
+        // clear red borders
+        [nameInput, emailInput, messageInput].forEach(input => changeBorderColor(input, 'gray'));
+
+        // check if inputs are valid
+        const isValidName = Boolean(formData.from_name);
+        const isValidEmail = Boolean(validateEmail(formData.from_email));
+        const isValidMessage = Boolean(formData.message);
+
+        // add red border to invalid inputs. Note: switch is not the best solution for this :)
+        if (!isValidName) {
+            changeBorderColor(nameInput, 'red');
+        }
+        if (!isValidEmail) {
+            changeBorderColor(emailInput, 'red');
+        }
+        if (!isValidMessage) {
+            changeBorderColor(messageInput, 'red');
+        }
+
+        return isValidName && isValidEmail && isValidMessage;
+
+    }
+
     function handleSubmit(e) {
         e.preventDefault();
 
-        let name = document.getElementById("name");
-        let email = document.getElementById("email");
-        let message = document.getElementById("message");
-        
-        const emailValid = validateEmail(formData.from_email);
+        let nameInput = document.getElementById("name");
+        let emailInput = document.getElementById("email");
+        let messageInput = document.getElementById("message");
 
-        function clearFormErrors(){
-            name.style.border = '1px solid gray';
-            email.style.border = '1px solid gray';
-            message.style.border = '1px solid gray';
-        }
+        const isFormValid = checkFormValidity(nameInput, emailInput, messageInput);
 
-        if(!formData.from_name || !formData.from_email || !formData.message){
-            clearFormErrors();
-            if(!formData.from_name){
-                name.style.border = '1px solid red';
-            }
-            if(!formData.from_email){
-                email.style.border = '1px solid red';
-            }
-            if(!formData.message){
-                message.style.border = '1px solid red';
-            }
-        }
-        if(!emailValid){
-            email.style.border = '1px solid red';
-        }
-        if(formData.from_name && formData.from_email && formData.message && emailValid) {
-            clearFormErrors();
-            emailjs.send('porfolio_contact_form', 'portfolio_message', formData, process.env.REACT_APP_USER_ID)
-                .then((result) => {
-                    if (result.text){
+        if(isFormValid) {
+            emailjs.send('portfolio_contact_form', 'portfolio_message', formData, process.env.REACT_APP_USER_ID)
+                .then(r => {
+                    if (r.text){
                         setFormData({
                             from_name: "",
                             from_email: "", 
@@ -61,6 +68,12 @@ function Contact() {
                         });
                     }
                 }, (error) => {
+                    changeBorderColor(messageInput, 'red');
+                    setFormData({
+                        from_name: "",
+                        from_email: "", 
+                        message: "Oops! Something went wrong. Please try again or contact me directly via linkedin, github, or dev.to linked above."
+                    });
                     console.log(error.text);
             });
         }
