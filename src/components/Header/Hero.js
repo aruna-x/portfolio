@@ -7,7 +7,7 @@ function Hero() {
             </div> 
         )
     }
-    
+
   return (
     <div id="hero">
         <div id="animation">

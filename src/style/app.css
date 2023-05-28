@@ -399,6 +399,7 @@ nav {
   padding: 10px;
   border-radius: 10px;
   background-color: white;
+  color: black;
 }
 
 @media only screen and (max-width: 650px) {
