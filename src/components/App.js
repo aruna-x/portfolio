@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 
-import Header from './Header';
-import About from './About';
-import Projects from './Projects';
-import Contact from './Contact';
+import Header from './Header/Header';
+import About from './About/About';
+import Projects from './About/Projects';
+import Contact from './Contact/Contact';
 
-import '../resources/App.css';
+import '../style/app.css';
 
 function App() {
   const [width, setWindowWidth] = useState(0);

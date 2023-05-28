@@ -30,6 +30,8 @@ function Nav({width, handleScroll}) {
             <img id="logo" src="/portfolio/images/logo.png" alt="Site logo"/>
             {width >= 650 ? <ButtonList /> : <Hamburger />}
         </div>
+        {/* openMobileMenu only exists if we have width >= 650 
+        todo: bless this mess, then fix it :) */}
         {openMobileMenu ? <ButtonList /> : <></>}
     </nav>
   );
