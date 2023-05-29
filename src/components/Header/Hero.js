@@ -20,7 +20,7 @@ function Hero() {
                 <div className="circle3">
                     <NameContainer>
                         <h1>Aruna Evan</h1>
-                        <JobTitle href="https://www.linkedin.com/in/aruna-x/">Software Engineer</JobTitle>
+                        <JobTitle href="https://www.linkedin.com/in/aruna-x/" target="_blank">Software Engineer</JobTitle>
                     </NameContainer>
                 </div>
             </div> 

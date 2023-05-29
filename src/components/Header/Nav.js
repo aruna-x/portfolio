@@ -2,19 +2,38 @@ import { useState } from 'react';
 import styled from 'styled-components';
 
 function Nav({width, handleScroll}) {
-  const [openMobileMenu, setOpenMobileMenu] = useState(false);
-
   function toggleMobileMenu() {
-    setOpenMobileMenu(bool => !bool);
+    const mobileMenu = document.getElementById("menu");
+
+    // slide down
+    if(!mobileMenu.classList.contains("active")) {
+      mobileMenu.classList.add("active");
+
+      mobileMenu.style.height = "auto";
+      let height = mobileMenu.clientHeight + "px"
+      mobileMenu.style.height = "0px";
+
+      setTimeout(() => {
+        mobileMenu.style.height = height;
+    }, 0) 
+    }
+    // slide up
+    else {
+    	mobileMenu.style.height = "0px"
+      mobileMenu.addEventListener('transitionend', () => {
+        mobileMenu.classList.remove('active')
+      }, {once: true})
+    }
   }
 
-  const ButtonList = () => {
+  const ButtonList = (mobile) => {
     return (
-      <StyledButtonList>
+      <StyledButtonList id="menu" >
         <Button onClick={() => handleScroll("about")}>about</Button>
         <Button onClick={() => handleScroll("projects")}>projects</Button>
         <Button onClick={() => window.location.href='https://dev.to/aruna'}>blog</Button>
         <Button onClick={() => handleScroll("contact")}>contact</Button>
+        <Button onClick={() => window.location.href='https://www.reddit.com/r/ProgrammerHumor/comments/13sfn1j/chatgpt_gaslighted_me_hard_so_i_gaslighted_it/'}>hallucinate</Button>
       </StyledButtonList>
     )
   }
@@ -27,13 +46,21 @@ function Nav({width, handleScroll}) {
 
   return (
     <StyledNav>
+      {/* todo */}
+      { width >= 650 ?
         <NavTop>
             <Logo id="logo" src="/portfolio/images/logo.png" alt="Site logo"/>
-            {width >= 650 ? <ButtonList /> : <Hamburger />}
+            <ButtonList />
         </NavTop>
-        {/* openMobileMenu only exists if we have width >= 650 
-        todo: bless this mess, then fix it :) */}
-        {openMobileMenu ? <ButtonList /> : <></>}
+        :
+        (<>
+          <NavTop>
+            <Logo id="logo" src="/portfolio/images/logo.png" alt="Site logo"/>
+            <Hamburger />
+          </NavTop>
+          <ButtonList />
+        </>)
+        }
     </StyledNav>
   );
 }
@@ -42,6 +69,10 @@ export default Nav;
 
 const StyledNav = styled.nav`
   margin: 25px;
+
+  @media only screen and (max-width: 650px) {
+    margin: 25px 0 0 0;
+  }
 `;
 
 const NavTop = styled.div`
@@ -75,6 +106,13 @@ const StyledButtonList = styled.div`
     flex-direction: column;
     margin-top: 15px;
     z-index: 10;
+
+    transition: height .5s ease;
+    overflow: hidden;
+    
+    &:not(.active) {
+      display: none;
+    }
   }
 `;
 
