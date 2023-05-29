@@ -1,0 +1,64 @@
+.inner {
+  border-radius:50%;
+  border: 2px solid white;
+}
+
+#overlay {
+  border-radius: 50%;
+  position: absolute;
+  margin: auto auto;
+  left: 0;
+  right: 0;
+}
+
+.circle1 {
+  height: 500px;
+  width: 500px;
+  border-right: none;
+}
+
+.circle2 {
+  height: 520px;
+  width: 520px;
+  border-bottom: none;
+}
+
+.circle3 {
+  height: 540px;
+  width: 540px;
+  border-left: none;
+}
+
+.rotating {
+  animation: rotating 6s linear infinite;
+}
+
+@keyframes rotating  {
+  from {
+     transform:rotate(0deg);
+  }
+  
+  to {
+     transform:rotate(360deg);
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .circle1 {
+    top: 29%;
+    height: 88vw;
+    width: 88vw;
+  }
+
+  .circle2 {
+    top: 29%;
+    height: 89vw;
+    width: 89vw;
+  }
+  
+  .circle3 {
+    top: 29%;
+    height: 91vw;
+    width: 91vw;
+  }
+}

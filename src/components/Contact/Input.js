@@ -1,3 +1,5 @@
+import styled from "styled-components";
+
 function Input({id, type, placeholder, rows, dataType, formData, setFormData, inputType="input"}) {
   function handleChange(e) {
       setFormData({...formData, [dataType]: e.target.value});
@@ -7,20 +9,18 @@ function Input({id, type, placeholder, rows, dataType, formData, setFormData, in
       <>
           <label hidden>{placeholder}</label>
           { inputType === "input" ? 
-            <input
+            <StyledInput
               id={id}
               type={type}
-              placeholder={placeholder} 
-              className="textarea"
+              placeholder={placeholder}
               value={formData[dataType]} 
               onChange={handleChange} 
               required
             /> 
-            : <textarea
+            : <TextArea
               id={id}
               type={type}
-              placeholder={placeholder} 
-              className="textarea"
+              placeholder={placeholder}
               rows={rows}
               value={formData[dataType]} 
               onChange={handleChange} 
@@ -32,3 +32,25 @@ function Input({id, type, placeholder, rows, dataType, formData, setFormData, in
 }
 
 export default Input;
+
+const TextArea = styled.textarea`
+  max-width: 500px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.166);
+  color: white;
+  margin: 7px 0;
+  font-family: monospace;
+`;
+
+const StyledInput = styled.input`
+  max-width: 500px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.166);
+  color: white;
+  margin: 7px 0;
+  font-family: monospace;
+`;

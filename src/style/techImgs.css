@@ -1,0 +1,55 @@
+#tech-icon1:hover {
+  filter: invert(49%) sepia(90%) saturate(4906%) hue-rotate(339deg) brightness(90%) contrast(108%);
+  color: #ed302d; 
+}
+
+#tech-icon2:hover {
+  filter: invert(41%) sepia(26%) saturate(3141%) hue-rotate(330deg) brightness(97%) contrast(100%);
+  color: #f7532e; 
+}
+
+#tech-icon3:hover {
+  filter: invert(48%) sepia(70%) saturate(4413%) hue-rotate(370deg) brightness(150%) contrast(95%);
+}
+
+#tech-icon4:hover {
+  filter: invert(48%) sepia(70%) saturate(4413%) hue-rotate(415deg) brightness(350%) contrast(95%);
+}
+
+#tech-icon5:hover {
+  filter: invert(78%) sepia(48%) saturate(498%) hue-rotate(50deg) brightness(405%) contrast(97%);
+}
+
+#tech-icon6:hover {
+  filter: invert(77%) sepia(7%) saturate(2829%) hue-rotate(84deg) brightness(412%) contrast(97%);
+  /* color: #6afb98  */
+}
+
+#tech-icon7:hover {
+  filter: invert(80%) sepia(45%) saturate(432%) hue-rotate(112deg) brightness(400%) contrast(101%);
+  /* color: #6afbe0  */
+}
+
+#tech-icon8:hover {
+  filter: invert(76%) sepia(16%) saturate(4718%) hue-rotate(165deg) brightness(301%) contrast(102%);
+  /* color: #43cdff  */
+}
+
+#tech-icon9:hover {
+  filter: invert(48%) sepia(42%) saturate(5007%) hue-rotate(203deg) brightness(107%) contrast(94%);
+  /* color: #458df8  */
+}
+
+#tech-icon10:hover {
+  filter: invert(39%) sepia(122%) saturate(4140%) hue-rotate(216deg) brightness(101%) contrast(95%);
+  /* color: #4569f8  */
+}
+
+#tech-icon11:hover {
+  filter: invert(39%) sepia(82%) saturate(4140%) hue-rotate(221deg) brightness(101%) contrast(95%);
+}
+
+#tech-icon12:hover {
+  filter: invert(53%) sepia(80%) saturate(7446%) hue-rotate(246deg) brightness(99%) contrast(100%);
+  color: #7244fc 
+}

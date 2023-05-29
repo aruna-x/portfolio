@@ -1,17 +1,17 @@
 import { useState, useEffect } from 'react';
+import styled from 'styled-components';
 
+import GlobalStyle from './globalStyles';
 import Header from './Header/Header';
 import About from './About/About';
 import Projects from './About/Projects';
 import Contact from './Contact/Contact';
 
-import '../style/app.css';
-
 function App() {
   const [width, setWindowWidth] = useState(0);
   
   function updateDimensions() {
-    setWindowWidth(width => window.innerWidth);
+    setWindowWidth(() => window.innerWidth);
   }
 
   useEffect(updateDimensions,[]);
@@ -22,11 +22,12 @@ function App() {
 
   return (
     <>
+      <GlobalStyle />
       <Header width={width} handleScroll={handleScroll}/>
-      <div id="middle-contents">
+      <StyledContents>
         <About/>
         <Projects handleScroll={handleScroll}/>
-      </div>
+      </StyledContents>
       <Contact />
     </>
     
@@ -34,3 +35,9 @@ function App() {
 }
 
 export default App;
+
+const StyledContents = styled.div`
+  width: 80vw;
+  margin: auto auto;
+  background-color: white;
+`;
