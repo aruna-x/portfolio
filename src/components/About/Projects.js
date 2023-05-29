@@ -25,7 +25,7 @@ function Projects({handleScroll}) {
     }
 
   return (
-    <StyledProjects>
+    <StyledProjects id="projects">
         <h2>Projects</h2>
         <ProjectWrapper>
             { projectData.map(p => (

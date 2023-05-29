@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 function About() {
   return (
-    <StyledAbout>
+    <StyledAbout id="about">
       <h2>About</h2>
       <Headshot src="/portfolio/images/headshot.jpg" alt="Aruna Evan" />
       <p>I am an exceptional Software Engineer driven by a deep sense of collaboration, unwavering dedication, and genuine empathy. My expertise lies in the intricate art of designing, engineering, deploying, and maintaining full stack web applications, employing the remarkable power of React, Ruby on Rails, and various JavaScript-based programming languages. With an insatiable thirst for knowledge and an unyielding commitment to precision, I consistently channel my passion to propel a company's vision forward, revolutionizing the human experience through groundbreaking technological innovation and creative solutions.</p>

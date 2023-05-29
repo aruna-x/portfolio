@@ -21,7 +21,7 @@ function Contact() {
     }
 
     return (
-        <StyledContact>
+        <StyledContact id="contact">
             <ContactWrapper>
                 <h2>Contact</h2>
                 <SocialIcons>
