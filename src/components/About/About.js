@@ -5,7 +5,7 @@ function About() {
     <StyledAbout>
       <h2>About</h2>
       <Headshot src="/portfolio/images/headshot.jpg" alt="Aruna Evan" />
-      <p>Software Engineer invested in collaboration, dedication and empathy. Trained in designing, building, deploying, and maintaining full-stack web apps using React, Ruby on Rails, and Javascript-based programming. Passionate about exercising strong intellectual curiosity and attention to detail to the benefit of a company’s vision and to improve the human experience through technological innovation and solutions.</p>
+      <p>I am an exceptional Software Engineer driven by a deep sense of collaboration, unwavering dedication, and genuine empathy. My expertise lies in the intricate art of designing, engineering, deploying, and maintaining full stack web applications, employing the remarkable power of React, Ruby on Rails, and various JavaScript-based programming languages. With an insatiable thirst for knowledge and an unyielding commitment to precision, I consistently channel my passion to propel a company's vision forward, revolutionizing the human experience through groundbreaking technological innovation and creative solutions.</p>
       <p><em><strong>Tech Stack:</strong> React, React Native, Javascript, Node.js, Express.js, Ruby on Rails, Angular.js, Python, Redux, Styled Components, Storybook, Apollo GraphQL, Heroku, PostgreSQL, Redis, Active Record, SQL, Git, Jest, Detox, Cypress, CSS3, HTML5, Xcode, Android Studio, CircleCi / CICD, Atomic Design, Stripe.js</em></p>
     </StyledAbout>
   );
