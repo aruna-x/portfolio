@@ -93,13 +93,6 @@ const projectData = [
       image: "/portfolio/images/350.png",
       alt: "Preview of fundraising site",
   },
-  {   
-      title: "Themed Quiz Game",
-      description: "Jeopardy-inspired quiz game testing player’s general knowledge.",
-      demoVideo: "https://vimeo.com/670021116/8d9ee7485e",
-      image: "/portfolio/images/quiz-game.png",
-      alt: "Preview of quiz game app",
-  },
   {
       title: "Big O Calculator",
       description: "Estimates time complexity of code & reveals costly code for new devs learning DSA.",
@@ -113,6 +106,13 @@ const projectData = [
       demoVideo: "https://vimeo.com/manage/videos/678435571/c0c7bd34f1",
       image: "/portfolio/images/med-reminders.png",
       alt: "Preview of med reminder project",
+  },
+  {   
+    title: "Themed Quiz Game",
+    description: "Jeopardy-inspired quiz game testing player’s general knowledge, with real Jeopardy questions.",
+    demoVideo: "https://vimeo.com/670021116/8d9ee7485e",
+    image: "/portfolio/images/quiz-game.png",
+    alt: "Preview of quiz game app",
   },
 ]
 

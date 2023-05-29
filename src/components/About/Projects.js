@@ -79,7 +79,7 @@ const ProjectWrapper = styled.div`
 
 const StyledProjectCard = styled.div`
     flex: 1;
-    height: 300px;
+    height: 350px;
     margin: 20px;
     border-radius: 15px;
     padding: 25px;
