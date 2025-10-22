@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
-import GlobalStyle from './globalStyles';
-import Header from './Header/Header';
-import About from './About/About';
-import Projects from './About/Projects';
-import Contact from './Contact/Contact';
+// import GlobalStyle from './globalStyles';
+// import Header from './Header/Header';
+// import About from './About/About';
+// import Projects from './About/Projects';
+// import Contact from './Contact/Contact';
 
 function App() {
   const [width, setWindowWidth] = useState(0);
@@ -65,7 +65,7 @@ function App() {
       <Card role="region" aria-labelledby="heading">
         <Header>
           <Title id="heading">Aruna Evan · Software Engineer</Title>
-          <Pill aria-label="version">v0.2</Pill>
+          <Pill aria-label="version">v0.1</Pill>
         </Header>
         <Body>
           <Grid>
@@ -85,7 +85,7 @@ function App() {
             <div>
               <Headline>Profile Under Construction</Headline>
               <Lead>
-                I’m crafting a better developer experience here—clean code, fast performance, and
+                I’m crafting a better user experience here—clean code, fast performance, and
                 thoughtful UX. Check back soon for projects, blog posts, and more.
               </Lead>
 
@@ -96,14 +96,14 @@ function App() {
                 <ButtonSecondary href="https://dev.to/aruna" aria-label="Read blog posts by Aruna">
                   <span>Read the blog</span>
                 </ButtonSecondary>
-                // <div style={{ marginLeft: "auto", display: "inline-flex", gap: 8 }}>
-                //   <IconButton href="https://github.com/" target="_blank" rel="noreferrer" aria-label="GitHub">
-                //     <GitHub />
-                //   </IconButton>
-                //   <IconButton href="mailto:aruna.evan15@gmail.com" aria-label="Email Aruna">
-                //     <Mail />
-                //   </IconButton>
-                // </div>
+                {/* <div style={{ marginLeft: "auto", display: "inline-flex", gap: 8 }}>
+                  <IconButton href="https://github.com/" target="_blank" rel="noreferrer" aria-label="GitHub">
+                    <GitHub />
+                  </IconButton>
+                  <IconButton href="mailto:aruna.evan15@gmail.com" aria-label="Email Aruna">
+                    <Mail />
+                  </IconButton>
+                </div> */}
               </Actions>
 
               <StatGrid>
@@ -135,9 +135,6 @@ export default App;
 //   margin: auto auto;
 //   background-color: white;
 // `;
-
-import React from "react";
-import styled, { keyframes } from "styled-components";
 
 // --- Animations (CSS-only) ---
 const wobble = keyframes`
